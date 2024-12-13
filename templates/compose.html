@@ -45,7 +45,7 @@
 			</div>
 			
 			<div class="form-group row form-check">
-				<label for="compose-priority2022" class="col-form-label col-6"><span style="color:#f88;font-weight:bold;font-size:16px;">! </span> High Importance</label>
+				<label for="compose-priority2022" class="col-form-label col-6"><span style="color:#f88;font-weight:bold;font-size:16px;">! </span> Prioritari</label>
 				<div class="col-6 form-check">
 					<input name="_dsn" id="compose-priority2022" tabindex="2" class="form-check-input" value="1" type="checkbox" onchange="define_priority(this)">
 				</div>
@@ -138,101 +138,104 @@
 		<!-- message headers -->
 		<div id="compose-headers" role="region" aria-labelledby="aria-label-composeheaders">
 			<h2 id="aria-label-composeheaders" class="voice"><roundcube:label name="arialabelmessageheaders" /></h2>
-			
-						<table style="width:100%"><tr><td class="hide_small" style="width: 1%;vertical-align:middle;padding:10px 10px 0 10px">
-			<roundcube:button command="send" class="btn btn-primary send" label="send" tabindex="1" data-content-button="true" style="height: 50px; padding-right: 12px;"/>
-			</td>
-			<td style="padding:10px 10px 0 0">
-			<div class="compose-headers">
-				<div id="compose_from" class="form-group row">
-					<label for="_from" class="col-2 col-form-label"><roundcube:label name="from" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="from" id="_from" form="form" tabindex="1" class="form-control" />
-							<span class="input-group-append">
-								<a href="#identities" onclick="return rcmail.command('switch-task', 'settings/identities')" class="input-group-text icon edit" title="<roundcube:label name="editidents" />" tabindex="1"><span class="inner"><roundcube:label name="editidents" /></span></a>
-							</span>
+			<table style="width:100%">
+				<tr>
+					<td style="padding:10px 10px 0 0">
+						<div class="compose-headers">
+							<div id="compose_from" class="form-group row">
+								<label for="_from" class="col-2 col-form-label"><roundcube:label name="from" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="from" id="_from" form="form" tabindex="1" class="form-control" />
+										<span class="input-group-append">
+											<a href="#identities" onclick="return rcmail.command('switch-task', 'settings/identities')" class="input-group-text icon edit" title="<roundcube:label name="editidents" />" tabindex="1"><span class="inner"><roundcube:label name="editidents" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_to" class="form-group row">
+								<label for="_to" class="col-2 col-form-label"><roundcube:label name="to" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="to" id="_to" form="form" tabindex="1" aria-required="true" data-recipient-input="true" />
+										<span class="input-group-append">
+											<a href="#add-contact" onclick="UI.recipient_selector('to')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
+										</span>
+										<span class="input-group-append">
+											<a href="#add-header" data-popup="headers-menu" class="input-group-text icon add" title="<roundcube:label name="addheader" />" tabindex="1"><span class="inner"><roundcube:label name="addheader" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_cc" class="hidden form-group row">
+								<label for="_cc" class="col-2 col-form-label"><roundcube:label name="cc" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="cc" id="_cc" form="form" tabindex="1" data-recipient-input="true" />
+										<span class="input-group-append">
+											<a href="#add-contact" onclick="UI.recipient_selector('cc')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
+										</span>
+										<span class="input-group-append">
+											<a href="#delete" onclick="UI.header_reset('_cc')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_bcc" class="hidden form-group row">
+								<label for="_bcc" class="col-2 col-form-label"><roundcube:label name="bcc" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="bcc" id="_bcc" form="form" tabindex="1" data-recipient-input="true" />
+										<span class="input-group-append">
+											<a href="#add-contact" onclick="UI.recipient_selector('bcc')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
+										</span>
+										<span class="input-group-append">
+											<a href="#delete" onclick="UI.header_reset('_bcc')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_replyto" class="hidden form-group row">
+								<label for="_replyto" class="col-2 col-form-label"><roundcube:label name="replyto" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="replyto" id="_replyto" form="form" tabindex="1" data-recipient-input="true" />
+										<span class="input-group-append">
+											<a href="#add-contact" onclick="UI.recipient_selector('replyto')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
+										</span>
+										<span class="input-group-append">
+											<a href="#delete" onclick="UI.header_reset('_replyto')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_followupto" class="hidden form-group row">
+								<label for="_followupto" class="col-2 col-form-label"><roundcube:label name="followupto" /></label>
+								<div class="col-10">
+									<div class="input-group">
+										<roundcube:object name="composeHeaders" part="followupto" id="_followupto" form="form" tabindex="1" data-recipient-input="true" />
+										<span class="input-group-append">
+											<a href="#add-contact" onclick="UI.recipient_selector('followupto')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
+										</span>
+										<span class="input-group-append">
+											<a href="#delete" onclick="UI.header_reset('_followupto')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="compose_subject" class="form-group row" style="margin-bottom:0">
+								<label for="compose-subject" class="col-2 col-form-label"><roundcube:label name="subject" /></label>
+								<div class="col-10">
+									<roundcube:object name="composeSubject" id="compose-subject" form="form" tabindex="1" class="form-control" />
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div id="compose_to" class="form-group row">
-					<label for="_to" class="col-2 col-form-label"><roundcube:label name="to" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="to" id="_to" form="form" tabindex="1" aria-required="true" data-recipient-input="true" />
-							<span class="input-group-append">
-								<a href="#add-contact" onclick="UI.recipient_selector('to')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
-							</span>
-							<span class="input-group-append">
-								<a href="#add-header" data-popup="headers-menu" class="input-group-text icon add" title="<roundcube:label name="addheader" />" tabindex="1"><span class="inner"><roundcube:label name="addheader" /></span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="compose_cc" class="hidden form-group row">
-					<label for="_cc" class="col-2 col-form-label"><roundcube:label name="cc" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="cc" id="_cc" form="form" tabindex="1" data-recipient-input="true" />
-							<span class="input-group-append">
-								<a href="#add-contact" onclick="UI.recipient_selector('cc')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
-							</span>
-							<span class="input-group-append">
-								<a href="#delete" onclick="UI.header_reset('_cc')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="compose_bcc" class="hidden form-group row">
-					<label for="_bcc" class="col-2 col-form-label"><roundcube:label name="bcc" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="bcc" id="_bcc" form="form" tabindex="1" data-recipient-input="true" />
-							<span class="input-group-append">
-								<a href="#add-contact" onclick="UI.recipient_selector('bcc')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
-							</span>
-							<span class="input-group-append">
-								<a href="#delete" onclick="UI.header_reset('_bcc')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="compose_replyto" class="hidden form-group row">
-					<label for="_replyto" class="col-2 col-form-label"><roundcube:label name="replyto" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="replyto" id="_replyto" form="form" tabindex="1" data-recipient-input="true" />
-							<span class="input-group-append">
-								<a href="#add-contact" onclick="UI.recipient_selector('replyto')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
-							</span>
-							<span class="input-group-append">
-								<a href="#delete" onclick="UI.header_reset('_replyto')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="compose_followupto" class="hidden form-group row">
-					<label for="_followupto" class="col-2 col-form-label"><roundcube:label name="followupto" /></label>
-					<div class="col-10">
-						<div class="input-group">
-							<roundcube:object name="composeHeaders" part="followupto" id="_followupto" form="form" tabindex="1" data-recipient-input="true" />
-							<span class="input-group-append">
-								<a href="#add-contact" onclick="UI.recipient_selector('followupto')" class="input-group-text icon add recipient" title="<roundcube:label name="addcontact" />" tabindex="1"><span class="inner"><roundcube:label name="addcontact" /></span></a>
-							</span>
-							<span class="input-group-append">
-								<a href="#delete" onclick="UI.header_reset('_followupto')" class="input-group-text icon delete" title="<roundcube:label name='delete' />" tabindex="1"><span class="inner"><roundcube:label name="delete" /></span></a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="compose_subject" class="form-group row" style="margin-bottom:0">
-					<label for="compose-subject" class="col-2 col-form-label"><roundcube:label name="subject" /></label>
-					<div class="col-10">
-						<roundcube:object name="composeSubject" id="compose-subject" form="form" tabindex="1" class="form-control" />
-					</div>
-				</div>
-			</div>
-			</td></tr></table>
+					</td>
+					<td class="hide_small" style="width: 1%;vertical-align:middle;padding:10px 10px 0 10px">
+						<roundcube:button command="send" class="btn btn-primary send" label="send" tabindex="1" data-content-button="true" style="height: 50px; padding-right: 12px;"/>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<!-- message compose body -->
 		<div id="composebodycontainer">
