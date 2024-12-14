@@ -22,17 +22,18 @@
 
 	<span class="header-title username" style="padding: 0 10px;"></span>
 		
-	<div class="header" style="border:0;">
+	<div class="header" style="border:0;display: grid;height: auto;">
 	
-		<roundcube:object name="logo" src="/images/nuvol_h.svg" id="logo" alt="Logo" />
+		<roundcube:object name="logo" src="/images/nuvol_h.svg" id="logo" alt="Logo" style="margin-top: 1.5rem;" />
 		
 		<a href="./?_task=mail&_action=compose" class="compose button">
 			<div><i class="sebicon composeicon" style='float:left'></i><roundcube:label name="compose" /></div>
-		</a>	
+		</a>
 
 	</div>
+	
 	<h2 id="aria-label-folderlist" class="voice"><roundcube:label name="arialabelfolderlist" /></h2>
-	<div id="folderlist-content" class="scroller">
+	<div class="scroller">
 		<roundcube:object name="mailboxlist" id="mailboxlist" class="treelist listing folderlist" folder_filter="mail" unreadwrap="%s" />
 	</div>
 	
